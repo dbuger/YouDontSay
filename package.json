@@ -1,0 +1,21 @@
+{
+  "name": "youdontsay",
+  "version": "1.0.0",
+  "description": "Socket IO",
+  "main": "server.js",
+  "dependencies": {
+    "express.js": "^1.0.0",
+    "socket.io":"^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dbuger/YouDontSay.git"
+  },
+  "author": "Gerald Butas",
+  "license": "ISC"
+}
