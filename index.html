@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat</title>
+  <style media="screen">
+    #chat{
+        height:400px;
+    }
+  </style>
+</head>
+<body>
+    <div id="chat"></div>
+    <form action="" id="send-message">
+          <input type="text" id="message"/>
+          <button type="submit">Send</button>
+    </form>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      $(function(){
+          var socket = io.connect();
+          socket.emit('send message', "Chrome hs joined the chat.");
+          var $form = $("#send-message"),
+              $msg = $("#message"),
+              $chat = $("#chat");
+
+
+          $form.submit(function(e){
+              e.preventDefault();
+              socket.emit('send message',"Chrome says : "+$msg.val());
+              $msg.val('');
+          });
+
+          socket.on('message',function(data) {
+              $chat.append("<p>"+data+"</p>");
+          })
+      });
+    </script>
+</body>
+</html>
